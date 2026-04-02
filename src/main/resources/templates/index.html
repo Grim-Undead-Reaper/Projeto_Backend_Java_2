@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <title>MyProductCrud</title>
+</head>
+<body>
+    <header>
+        <form action="http://localhost:8080/MyProducts" method="post">
+            <select class="selectForm"  name="category" id="categoryID" required>
+                <option class="optionForm" value="Tudo">Tudo</option>
+                <option class="optionForm" value="Alimentos">Alimentos</option>
+                <option class="optionForm" value="Limpeza">Limpeza</option>
+                <option class="optionForm" value="Cosmeticos">Cosméticos</option>
+                <option class="optionForm" value="Saude">Saude</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+
+        <form action="http://localhost:8080/MyProducts" method="post">
+            <input type="text" name="" id="" placeholder="Meu produto...">
+            <button type="submit">🔍</button>
+        </form>
+    </header>
+    
+    <section>
+
+        <span th:if="${Products != null}">
+            <div class="container">
+                <div class="ProductDiv" th:each="product : ${Products}" id="ProductDivID">
+                    <p>nome: <b th:text="${product.product_name}"></b></p>
+                    <p>preço: <b id="priceID" th:text="${product.price_in_cents}"></b></p>
+                    <p>quantidade: <b th:text="${product.quantity}"></b></p>
+                    <p>categoria: <b th:text="${product.category}"></b></p>
+                </div>
+            </div>
+        </span>
+
+        <span th:if="${Products == null}">
+            <div style="text-align: center; font-size: 2.5rem;">
+                <h1>Nenhum produto encontrado.</h1><br>
+                <a href="http://localhost:8080/Product/Add" style="color: rgb(17, 0, 255);">Deseja adicionar um?</a>
+            </div>
+        </span>
+
+    </section>
+
+    <footer></footer>
+    
+</body>
+</html>

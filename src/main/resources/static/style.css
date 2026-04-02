@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background: #3F5EFB;
+    background: linear-gradient(#003754, #6b8a9c, #9065be, #ff8edb);
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.selectForm{
+    margin: 10px;
+}
+
+.ProductDiv {
+    text-align: start;
+    margin: 10px 10px;
+    height: 150px;
+    width: 450px;
+    flex: 0 0 calc(18% - 10px);
+    font-size: 1.5vw;
+    border-color: black;
+    border-style: double;
+}
+
+.ProductDiv:hover{
+    border-width: 10px;
+    box-shadow: 5px 10px 8px 10px gray;
+    font-size: 1.8vw;
+}

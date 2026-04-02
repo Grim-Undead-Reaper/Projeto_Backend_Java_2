@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/NewProductstyle.css}">
+    <title>New Product</title>
+</head>
+<body>
+
+    <h1>Add a new product!</h1>
+    
+    <div class="container">
+
+        <form action="http://localhost:8080/Product/Add" method="post" id="ProductID">
+            
+            <label for="name">
+                <input type="text" name="product_name" id="product_nameID" required placeholder="Name"><br>
+                <span>Name</span>
+            </label>
+            
+            <label for="price">
+                <input type="text" name="price_in_cents" id="price_in_centsID" required placeholder="Price"><br>
+                <span>Price</span>
+            </label>
+
+            <label for="quantity">
+                <input class="quantityForm" type="text" name="quantity" id="QuantityID" min="0" max="999" placeholder="Quantity"><br>
+                <span>Quantity</span>
+            </label>
+
+            <select class="selectForm"  name="category" id="categoryID" required>
+                <option class="optionForm" value="Alimentos">Alimentos</option>
+                <option class="optionForm" value="Limpeza">Limpeza</option>
+                <option class="optionForm" value="Cosmeticos">Cosméticos</option>
+                <option class="optionForm" value="Saude">Saude</option>
+            </select><br>
+
+            <button type="submit" id="submitFormID">Create</button>
+        </form>
+        
+    </div>
+
+    <script th:src="@{/scripts/CreateProductScript.js}"></script>
+
+</body>
+</html>
