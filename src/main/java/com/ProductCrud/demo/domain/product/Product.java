@@ -5,7 +5,7 @@ import lombok.*;
 
 @Table(name="product")
 @Entity(name="product")
-@EqualsAndHashCode(of="product_ID")
+@EqualsAndHashCode(of="productID")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,23 +14,26 @@ public class Product {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String product_ID;
+    @Column(name = "product_id")
+    private String productID;
 
-    private String product_name;
+    @Column(name = "productName")
+    private String productName;
 
-    private Integer price_in_cents;
+    @Column(name = "priceInCents")
+    private Integer priceInCents;
 
     private Integer quantity;
 
     private String category;
 
     public String toString() {;
-        return "Produto{" + "product_name=" + product_name + '\'' + ", price_in_cents=" + price_in_cents + '\'' + ", quantity=" + quantity + '\'' + ", category=" + category + "}";
+        return "Produto{" + "Name=" + productName + '\'' + ", priceInCents=" + priceInCents + '\'' + ", quantity=" + quantity + '\'' + ", category=" + category + "}";
     }
 
     public Product(ProductDTO DTO){
-        this.product_name = DTO.product_name();
-        this.price_in_cents = DTO.price_in_cents();
+        this.productName = DTO.productName();
+        this.priceInCents = DTO.priceInCents();
         this.quantity = DTO.quantity();
         this.category = DTO.category();
     }

@@ -28,8 +28,23 @@ public class HomeController {
     }
 
     @PostMapping
-    public String Homepage(@ModelAttribute ProductDTO productDTO, Model model){
-        List<Product> Products = dbs.FilteredProducts(productDTO);
+    public String Homepage(@ModelAttribute ProductDTO dto, Model model){
+        List<Product> Products = dbs.FilteredProducts(dto);
+
+        if (Products.isEmpty()){
+            model.addAttribute("Products", null);
+        } else {
+            model.addAttribute("Products", Products);
+        }
+
+        return "index";
+    }
+
+    @PostMapping("/ByName")
+    public String HomepageFilteredByName(@ModelAttribute ProductDTO dto, Model model){
+        System.out.println(dto.productName());
+        List<Product> Products = dbs.FilteredByName(dto.productName());
+        System.out.println(Products);
 
         if (Products.isEmpty()){
             model.addAttribute("Products", null);

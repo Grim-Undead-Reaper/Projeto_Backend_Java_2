@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="shortcut icon" th:href="@{/Assets/SiteLogo.png}" type="image/x-icon">
     <title>MyProductCrud</title>
 </head>
 <body>
     <header>
+        <img th:src="@{/Assets/SiteLogo.png}" alt="">
+
         <form action="http://localhost:8080/MyProducts" method="post">
-            <select class="selectForm"  name="category" id="categoryID" required>
+            <select class="selectForm"  name="category" id="categoryID" onchange="this.form.submit()">
+                <option value="" selected disabled hidden>Categoria</option>
                 <option class="optionForm" value="Tudo">Tudo</option>
                 <option class="optionForm" value="Alimentos">Alimentos</option>
                 <option class="optionForm" value="Limpeza">Limpeza</option>
                 <option class="optionForm" value="Cosmeticos">Cosméticos</option>
                 <option class="optionForm" value="Saude">Saude</option>
             </select>
-            <button type="submit">Filter</button>
         </form>
 
-        <form action="http://localhost:8080/MyProducts" method="post">
-            <input type="text" name="" id="" placeholder="Meu produto...">
-            <button type="submit">🔍</button>
+        <form action="http://localhost:8080/MyProducts/ByName" method="post">
+            <input class="SearchBar SearchImage" type="text" name="productName" id="productNameID" placeholder="Meu produto... " required>
         </form>
     </header>
     
@@ -30,10 +32,11 @@
         <span th:if="${Products != null}">
             <div class="container">
                 <div class="ProductDiv" th:each="product : ${Products}" id="ProductDivID">
-                    <p>nome: <b th:text="${product.product_name}"></b></p>
-                    <p>preço: <b id="priceID" th:text="${product.price_in_cents}"></b></p>
-                    <p>quantidade: <b th:text="${product.quantity}"></b></p>
-                    <p>categoria: <b th:text="${product.category}"></b></p>
+                    <button class="DeleteButton">Delete</button>
+                    <p>Nome: <b th:text="${product.productName}"></b></p>
+                    <p>Preço: <b id="priceID" th:text="${product.priceInCents}"></b></p>
+                    <p>Quantidade: <b th:text="${product.quantity}"></b></p>
+                    <p>Categoria: <b th:text="${product.category}"></b></p>
                 </div>
             </div>
         </span>
@@ -47,7 +50,9 @@
 
     </section>
 
-    <footer></footer>
+    <div class="NewProductButtonDiv">
+        <a href="http://localhost:8080/Product/Add"><button class="MyNewProduct">New Product</button></a>
+    </div>
     
 </body>
 </html>

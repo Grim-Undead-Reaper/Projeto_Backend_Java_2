@@ -1,16 +1,16 @@
 let SubmitButton = document.getElementById("submitFormID")
 
-let priceInput = document.getElementById("price_in_centsID");
+let priceInput = document.getElementById("priceInCentsID");
 
 priceInput.addEventListener("input", ()=> {
-    let price = String(document.getElementById("price_in_centsID").value);
+    let price = String(document.getElementById("priceInCentsID").value);
     newPrice = price.replace(/[a-zA-Z]+/g, "");
-    document.getElementById("price_in_centsID").value = Number(newPrice);
+    document.getElementById("priceInCentsID").value = Number(newPrice);
     console.log(newPrice);
 })
 
 function ValidatePrice() {
-    let price = String(document.getElementById("price_in_centsID").value);
+    let price = String(document.getElementById("priceInCentsID").value);
     price = price.replace(".", "");
     price = price.replace(",", "");
     price = price.replace("+", "");

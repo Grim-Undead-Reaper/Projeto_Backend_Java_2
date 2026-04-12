@@ -26,6 +26,6 @@ public class ProductController {
     @PostMapping("/Add")
     public String AddNewProduct(@ModelAttribute ProductDTO productDTO, Model model) {
         dbs.SaveProduct(productDTO);
-        return "newProduct";
+        return "redirect:/MyProducts";
     }
 }

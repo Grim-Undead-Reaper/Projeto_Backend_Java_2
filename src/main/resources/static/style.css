@@ -1,20 +1,61 @@
 * {
     margin: 0;
     padding: 0;
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 
-header{
-    background: #3F5EFB;
-    background: linear-gradient(#003754, #6b8a9c, #9065be, #ff8edb);
+header {
+    display: flex;
+    justify-content: space-between;
+    border-style: ridge;
+    border-color: grey;
+    height: 4.5rem;
+    padding: 5px;
 }
 
-.container{
+form {
+    align-content: center;
+}
+
+.SearchBarDiv {
+    background-color: aqua;
+}
+
+.SearchBar {
+    height: 25px;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-right: 30px;
+    padding-left: 25px;
+}
+
+.SearchBar:focus {
+    outline: none;
+    width: 175px;
+    transition-duration: 1s;
+}
+
+.SearchBar:not(:focus) {
+    width: 100px;
+    font-weight: lighter;
+    transition-duration: 1s;
+}
+
+.SearchImage {
+    background-image: url("../Assets/Search-Icon.png");
+    background-size: 45px;
+    background-repeat: no-repeat;
+    background-position: -10px center;
+}
+
+.container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.selectForm{
+.selectForm {
     margin: 10px;
 }
 
@@ -25,12 +66,50 @@ header{
     width: 450px;
     flex: 0 0 calc(18% - 10px);
     font-size: 1.5vw;
-    border-color: black;
+    border-color: gray;
     border-style: double;
 }
 
 .ProductDiv:hover{
     border-width: 10px;
-    box-shadow: 5px 10px 8px 10px gray;
+    box-shadow: 2px 4px 2px 4px gray;
     font-size: 1.8vw;
+    color: blue;
+}
+
+.ProductDiv:hover .DeleteButton {
+    display: inline;
+}
+
+.DeleteButton {
+    right: fit-content;
+    display: none;
+}
+
+.NewProductButtonDiv {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    margin-bottom: 1rem;
+    left: 85vw;
+    align-items: end;
+    justify-content: end;
+}
+
+.MyNewProduct{
+    text-align: center;
+    background-color: black;
+    color: gray;
+    height: 30px;
+    width: 150px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border-style: groove;
+}
+
+.MyNewProduct:hover {
+    color: white;
+    text-shadow: 0 0 5px white;
+    border-color: blue;
+    font-size: 1.1rem;
 }

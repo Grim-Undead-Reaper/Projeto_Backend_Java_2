@@ -41,4 +41,10 @@ public class DataBaseService {
         }
         return Products;
     }
+
+    public List<Product> FilteredByName(String Name){
+        List<Product> Products;
+        Products = repository.findByproductName(Name);
+        return Products;
+    }
 }
