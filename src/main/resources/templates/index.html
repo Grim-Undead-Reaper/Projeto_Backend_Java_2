@@ -23,7 +23,7 @@
         </form>
 
         <form action="http://localhost:8080/MyProducts/ByName" method="post">
-            <input class="SearchBar SearchImage" type="text" name="productName" id="productNameID" placeholder="Meu produto... " required>
+            <input class="SearchBar SearchImage" type="text" name="productName" id="productNameID" placeholder="Meu produto... " requireda autocomplete="off">
         </form>
     </header>
     
@@ -32,7 +32,7 @@
         <span th:if="${Products != null}">
             <div class="container">
                 <div class="ProductDiv" th:each="product : ${Products}" id="ProductDivID">
-                    <button class="DeleteButton">Delete</button>
+                    <button class="DeleteButton">🗑️</button>
                     <p>Nome: <b th:text="${product.productName}"></b></p>
                     <p>Preço: <b id="priceID" th:text="${product.priceInCents}"></b></p>
                     <p>Quantidade: <b th:text="${product.quantity}"></b></p>
