@@ -53,6 +53,7 @@ form {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 10px;
 }
 
 .selectForm {
@@ -60,18 +61,15 @@ form {
 }
 
 .ProductDiv {
-    text-align: start;
-    margin: 10px 10px;
-    height: 150px;
-    width: 450px;
-    flex: 0 0 calc(18% - 10px);
-    font-size: 1.5vw;
-    border-color: gray;
-    border-style: double;
+    width: 210px;          
+    height: 150px;         
+    padding: 10px;
+    font-size: 14px;
+    border: double gray;
 }
 
 .ProductDiv:hover{
-    border-width: 10px;
+    border-width: 1px;
     box-shadow: 2px 4px 2px 4px gray;
     font-size: 1.8vw;
     color: blue;
