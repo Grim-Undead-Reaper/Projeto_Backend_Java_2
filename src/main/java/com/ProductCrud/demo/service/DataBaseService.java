@@ -44,7 +44,7 @@ public class DataBaseService {
 
     public List<Product> FilteredByName(String Name){
         List<Product> Products;
-        Products = repository.findByproductName(Name);
+        Products = repository.findByproductNameContaining(Name);
         return Products;
     }
 }
