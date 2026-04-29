@@ -23,6 +23,7 @@ public class DataBaseService {
     }
 
     public void SaveProduct(ProductDTO dto){
+
         Product NewProduct = new Product(dto);
         repository.save(NewProduct);
     }
@@ -44,7 +45,7 @@ public class DataBaseService {
 
     public List<Product> FilteredByName(String Name){
         List<Product> Products;
-        Products = repository.findByproductNameContaining(Name);
+        Products = repository.findByproductNameContainingIgnoreCase(Name);
         return Products;
     }
 }

@@ -42,9 +42,7 @@ public class HomeController {
 
     @PostMapping("/ByName")
     public String HomepageFilteredByName(@ModelAttribute ProductDTO dto, Model model){
-        System.out.println(dto.productName());
         List<Product> Products = dbs.FilteredByName(dto.productName());
-        System.out.println(Products);
 
         if (Products.isEmpty()){
             model.addAttribute("Products", null);
