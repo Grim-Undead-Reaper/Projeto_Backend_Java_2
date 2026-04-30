@@ -57,6 +57,8 @@ form {
 }
 
 .selectForm {
+    width: 100px;
+    height: 25px;
     margin: 10px;
 }
 
@@ -68,11 +70,12 @@ form {
     border: double gray;
 }
 
-.ProductDiv:hover{
+.ProductDiv:hover {
     border-width: 1px;
-    box-shadow: 2px 4px 2px 4px gray;
+    box-shadow: 5px 5px 5px 0px blue;
     font-size: 1.2vw;
     color: blue;
+    transition-duration: 300ms;
 }
 
 .ProductDiv:hover .DeleteButton {
@@ -114,4 +117,66 @@ form {
     text-shadow: 0 0 5px white;
     border-color: blue;
     font-size: 1.1rem;
+    transition-duration: 600ms;
+}
+
+.ModalWindow {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.61);
+    z-index: 999;
+}
+
+.ProductModal {
+    border-radius: 20px;
+    text-align: center;
+    font-size: 35px;
+    padding: 10px;
+    width: 52vw;
+    min-width: 200px;
+    height: 32vh;
+    min-height: 200px;
+    background-color: rgba(255, 255, 255, 0.295);
+    backdrop-filter: blur(5px);
+}
+
+.CloseModal {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    font-size: 23px;
+    color: white;
+    cursor: pointer;
+}
+
+.CloseModal:hover {
+    background-color: red;
+}
+
+.ModalWindow.open {
+    display: flex;
+}
+
+@keyframes openmodal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, -5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.ProductModal {
+    animation: openmodal 1s;
 }
