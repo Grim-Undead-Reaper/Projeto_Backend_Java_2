@@ -125,9 +125,9 @@ form {
     display: none;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 86vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.61);
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.37),rgba(0, 0, 54, 0.37), rgba(0, 0, 255, 0.37));
     z-index: 999;
 }
 
@@ -138,7 +138,7 @@ form {
     padding: 10px;
     width: 52vw;
     min-width: 200px;
-    height: 32vh;
+    height: 55vh;
     min-height: 200px;
     background-color: rgba(255, 255, 255, 0.295);
     backdrop-filter: blur(5px);
