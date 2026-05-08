@@ -14,11 +14,12 @@
         <form action="http://localhost:8080/MyProducts" method="post">
             <select class="selectForm"  name="category" id="categoryID" onchange="this.form.submit()">
                 <option value="" selected disabled hidden>Categoria</option>
-                <option class="optionForm" value="Tudo">Tudo</option>
                 <option class="optionForm" value="Alimentos">Alimentos</option>
                 <option class="optionForm" value="Limpeza">Limpeza</option>
                 <option class="optionForm" value="Cosmeticos">Cosméticos</option>
                 <option class="optionForm" value="Saude">Saude</option>
+                <option class="optionForm" value="Eletronicos">Eletrônicos</option>
+                <option class="optionForm" value="Infantil">Infantil</option>
             </select>
         </form>
 
@@ -54,9 +55,8 @@
         <a href="http://localhost:8080/Product/Add"><button class="MyNewProduct">New Product</button></a>
     </div>
 
-    <div class="ModalWindow">
+    <div class="ModalWindow" id="ModalWindowID">
         <div class="ProductModal" id="ProductModalID">
-            <button onclick="CloseModal();" class="CloseModal" id="CloseModal">X</button>
         </div>
     </div>
 

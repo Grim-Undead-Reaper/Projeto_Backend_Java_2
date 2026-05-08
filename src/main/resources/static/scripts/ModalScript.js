@@ -1,7 +1,7 @@
 const ProductsList = document.querySelectorAll(".ProductDiv");
 
 let name = "";
-let priceInCents = "";
+let priceInCents = 0;
 let quantity = "";
 let category = "";
 
@@ -16,7 +16,10 @@ for (let i = 0; i < ProductsList.length; i++){
         const Values = ValuesHandler(name, priceInCents, quantity, category);
         
         document.getElementById("ProductsContainerID").style.display = "none";
-        OpenModal(Values[0], Values[1], Values[2], Values[3]);
+        console.log(Values[0]+"\n"+Values[1]+"\n"+Values[2]+"\n"+Values[3]);
+        
+        document.getElementById('ProductModalID').innerHTML = `${Values[0]}<br>${Values[1]}<br>${Values[2]}<br>${Values[3]}`;
+        OpenModal();
     })
 }
 
@@ -35,10 +38,12 @@ function ValuesHandler(name, price, quantity, category){
     return ArrayValues;
 }
 
+document.getElementById("ModalWindowID").addEventListener("click", ()=>{
+    CloseModal();
+})
+
 function OpenModal() {
     const modal = document.querySelector('.ModalWindow');
-    /*modal.innerHTML = `${name}<br>${price}<br>${quantity}<br>${category}`*/
-
     modal.classList.add('open');
 }
 
