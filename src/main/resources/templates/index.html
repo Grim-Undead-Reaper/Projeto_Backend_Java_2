@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/ModalStyle.css}">
     <link rel="shortcut icon" th:href="@{/Assets/SiteLogo.png}" type="image/x-icon">
     <title>MyProductCrud</title>
 </head>
@@ -14,6 +15,7 @@
         <form action="http://localhost:8080/MyProducts" method="post">
             <select class="selectForm"  name="category" id="categoryID" onchange="this.form.submit()">
                 <option value="" selected disabled hidden>Categoria</option>
+                <option class="optionForm" value="Tudo">Tudo</option>
                 <option class="optionForm" value="Alimentos">Alimentos</option>
                 <option class="optionForm" value="Limpeza">Limpeza</option>
                 <option class="optionForm" value="Cosmeticos">Cosméticos</option>
@@ -61,6 +63,5 @@
     </div>
 
     <script th:src="@{/scripts/ModalScript.js}"></script>
-    
 </body>
 </html>

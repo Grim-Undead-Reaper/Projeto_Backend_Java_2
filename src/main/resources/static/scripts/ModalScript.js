@@ -5,6 +5,8 @@ let priceInCents = 0;
 let quantity = "";
 let category = "";
 
+const teste = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 3});
+
 for (let i = 0; i < ProductsList.length; i++){
     ProductsList[i].addEventListener("click", (e)=>{
         
@@ -16,8 +18,8 @@ for (let i = 0; i < ProductsList.length; i++){
         const Values = ValuesHandler(name, priceInCents, quantity, category);
         
         document.getElementById("ProductsContainerID").style.display = "none";
-        console.log(Values[0]+"\n"+Values[1]+"\n"+Values[2]+"\n"+Values[3]);
-        
+
+        Values[1] = ConvertCentsToReal(Values[1]);
         document.getElementById('ProductModalID').innerHTML = `${Values[0]}<br>${Values[1]}<br>${Values[2]}<br>${Values[3]}`;
         OpenModal();
     })
@@ -38,17 +40,26 @@ function ValuesHandler(name, price, quantity, category){
     return ArrayValues;
 }
 
-document.getElementById("ModalWindowID").addEventListener("click", ()=>{
-    CloseModal();
+document.getElementById("ModalWindowID").addEventListener("click", (e)=>{
+    if (e.target.id == 'ModalWindowID'){
+        CloseModal();
+    }
 })
 
 function OpenModal() {
-    const modal = document.querySelector('.ModalWindow');
+    const modal = document.getElementById('ModalWindowID');
     modal.classList.add('open');
 }
 
 function CloseModal() {
-    const modal = document.querySelector('.ModalWindow');
+    const modal = document.getElementById('ModalWindowID');
     document.getElementById("ProductsContainerID").style.display = "flex";
     modal.classList.remove("open");
+}
+
+function ConvertCentsToReal(Cents){
+    let real = Number(Cents.replace(/[^0-9.]/g, ""));
+    real = teste.format(Number(real / 100));
+    console.log(real);
+    return real;
 }
