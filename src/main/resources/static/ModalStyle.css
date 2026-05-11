@@ -1,0 +1,47 @@
+.ModalWindow {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 4.5rem);
+    width: 100vw;
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.37),rgba(0, 0, 54, 0.37), rgba(1, 1, 199, 0.37));
+    z-index: 999;
+    overflow: hidden;
+}
+
+.ProductModal {
+    border-style: solid;
+    border-width: 15px;
+    border-radius: 8px;
+    border-color: rgb(31, 31, 31);
+    text-align: left;
+    font-size: 3.5rem;
+    padding: 10px;
+    width: 60vw;
+    min-width: 200px;
+    height: 60vh;
+    min-height: 200px;
+    background-color: rgba(255, 255, 255, 0.295);
+    backdrop-filter: blur(5px);
+}
+
+.ModalWindow.open {
+    display: flex;
+}
+
+@keyframes openmodal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, -5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.ProductModal {
+    animation: openmodal 1s;
+}
