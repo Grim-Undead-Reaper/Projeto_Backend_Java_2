@@ -55,7 +55,7 @@ span {
     position: absolute;
     top: 0;
     left: 0;
-    transform: translateY(30px);
+    transform: translateY(15px);
     font-size: 0.825em;
     transition-duration: 300ms;
 }
